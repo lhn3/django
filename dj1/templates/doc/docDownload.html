@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+
+{% block link %}
+    <link rel="stylesheet" href="../../static/css/doc/docDownload.css">
+{% endblock %}
+{% block title %}
+    在线文档
+{% endblock %}
+
+{% block l %}
+        <div class="main-contain ">
+            <div class="banner">
+                <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1802845035,3786939119&fm=26&gp=0.jpg"
+                     alt="">
+            </div>
+            <div class="pay-doc-contain">
+                <ul class="pay-list">
+                    {% for i in docs %}
+                    <li class="pay-item">
+                        <a href="http://127.0.0.1:8000{{ i.file_url }}" target="_blank">
+                            <img class="pay-img doc" src="{{ i.image_url }}" alt="加载错误">
+                        </a>
+                        <div class="d-contain">
+                            <a href="http://127.0.0.1:8000{{ i.file_url }}" target="_blank">
+                                <p class="doc-title">{{ i.title }}</p>
+                            </a>
+                            <p class="doc-desc">{{ i.desc }}</p>
+
+                            <!-- /www/?xxx -->
+                            <a href="{% url 'download_doc' i.id %}" class="pay-price">下载</a>
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+{% endblock %}
+

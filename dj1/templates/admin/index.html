@@ -1,0 +1,29 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block title %}
+    首页面
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'admin/css/index_time.css' %}">
+{% endblock %}
+
+{% block content_header %}
+
+{% endblock %}
+
+{% block content %}
+<div id="wrappers">
+<div class="timebox yuebox" id="yueBox"></div>
+<div class="timebox riqiBox" id="riqiBox"></div>
+<div class="timebox hourbox" id="hourbox"></div>
+<div class="timebox minutebox" id="minutebox"></div>
+<div class="timebox secondbox" id="secondbox"></div>
+</div>
+{% endblock %}
+
+
+
+{% block script %}
+    <script src="{% static 'admin/js/index_time.js' %}"></script>
+{% endblock %}

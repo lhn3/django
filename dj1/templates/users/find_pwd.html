@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    找回密码
+{% endblock %}
+
+{% block link %}
+  <link rel="stylesheet" href="../../static/css/authPro/find_pwd_auth.css">
+{% endblock %}
+
+{% block main %}
+<!-- container start -->
+<main id="container">
+  <div class="register-contain">
+    <div class="top-contain">
+      <h4 class="please-register">找回密码</h4>
+    </div>
+    <form action="" method="post" class="form-contain">
+{% csrf_token %}
+        <div class="form-item">
+        <input type="tel" placeholder="请输入手机号" id="mobile" name="telephone" class="form-control" autocomplete="off" autofocus>
+      </div>
+
+      <div class="form-item">
+        <input type="text" placeholder="请输入短信验证码" name="sms_captcha" class="form-captcha" id="input_smscode" autocomplete="off">
+        <a href="javascript:void(0);" class="sms-captcha" title="发送验证码">获取短信验证码</a>
+      </div>
+      <div class="form-item">
+        <input type="password" placeholder="请输入新密码" id="pwd" name="password" class="form-control">
+      </div>
+      <div class="form-item">
+        <input type="submit" value="确定" class="register-btn">
+      </div>
+    </form>
+  </div>
+</main>
+<!-- container end -->
+{% endblock %}
+
+{% block script %}
+    <script src="../../static/js/find_pwd.js"></script>
+{% endblock %}
+
+
+

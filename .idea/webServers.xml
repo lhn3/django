@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="69a69e70-2cda-4191-8ed4-3bff1dcd2217" name="dj_pro" url="http:///">
+        <fileTransfer rootFolder="/home/liuhunan/dj_pro" accessType="SFTP" host="127.0.0.1" port="1234" sshConfigId="049244ef-2ccd-4de7-b564-974951d67c58" sshConfig="liuhunan@127.0.0.1:1234 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

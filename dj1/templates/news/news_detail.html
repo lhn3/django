@@ -1,0 +1,88 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+{{ news_detail.title }}
+{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="../../static/css/news/news-detail.css">
+
+{% endblock %}
+
+{% block l %}
+<div class="news-contain">
+      <h1 class="news-title">{{ news_detail.title }}</h1>
+      <div class="news-info">
+        <div class="news-info-left">
+          <span class="news-author">{{ news_detail.author.username }}</span>
+          <span class="news-pub-time">{{ news_detail.update_time }}</span>
+          <span class="news-type">{{ news_detail.tag.name }}</span>
+        </div>
+      </div>
+      <article class="news-content">
+        {{ news_detail.content | safe }}
+      </article>
+
+      <div class="comment-contain">
+        <div class="comment-pub clearfix">
+          <div class="new-comment">
+            文章评论(<span class="comment-count">{{ comments|length }}</span>)
+          </div>
+
+          <div class="comment-control logged-comment" news-id="{{ news_detail.id }}">
+            <input type="text" placeholder="请填写评论" class="bs">
+          </div>
+          <button class="comment-btn">发表评论</button>
+          </div>
+
+
+        </div>
+        <ul class="comment-list">
+            {% for i in comments %}
+                {% if i.parent %}
+          <li class="comment-item">
+            <div class="comment-info clearfix">
+              <img src="../../static/images/avatar.jpeg" alt="avatar" class="comment-avatar">
+              <span class="comment-user">{{ i.parent.author }}</span>
+              <span class="comment-user right_float">{{ i.parent.update_time }}</span>
+            </div>
+            <div class="comment-content">{{ i.parent.content }}</div>
+
+              <div class="parent_comment_text">
+                  <div class="parent_username">{{ i.author }}</div>
+                  <div class="comment_time right_float">{{ i.update_time }}</div>
+                  <br/>
+                  <div class="parent_content_text">
+                    {{ i.content }}
+                  </div>
+                </div>
+
+                {% else %}
+          <li class="comment-item">
+            <div class="comment-info clearfix">
+              <img src="../../static/images/avatar.jpeg" alt="avatar" class="comment-avatar">
+              <span class="comment-user">{{ i.author }}</span>
+              <span class="comment-pub-time">{{ i.update_time }}</span>
+            </div>
+            <div class="comment-content">{{ i.content }}</div>
+              {% endif %}
+
+{#              <div class="comment_time left_float">{{ i.update_time }}</div>#}
+              <a href="javascript:void(0);" class="reply_a_tag right_float">回复</a>
+              <form class="reply_form left_float" comment-id="{{ i.content_id }}" news-id="{{ i.new_id }}">
+                <textarea class="reply_input"></textarea>
+                <input type="button" value="回复" class="reply_btn right_float">
+                <input type="reset" name="" value="取消" class="reply_cancel right_float">
+              </form>
+{#          增加内容#}
+
+          </li>
+            {% endfor %}
+
+        </ul>
+      </div>
+{% endblock %}
+
+{% block script %}
+    <script src="../../static/js/comments/comments.js"></script>
+{% endblock %}

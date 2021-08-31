@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    修改密码
+{% endblock %}
+
+{% block link %}
+  <link rel="stylesheet" href="../../static/css/authPro/re_pwd_auth.css">
+{% endblock %}
+
+{% block main %}
+<!-- container start -->
+<main id="container">
+  <div class="register-contain">
+    <div class="top-contain">
+      <h4 class="please-register">修改密码</h4>
+    </div>
+    <form action="" method="post" class="form-contain">
+{% csrf_token %}
+
+      <div class="form-item">
+
+        <input type="password" placeholder="请输旧入密码" id="pwd" name="password" class="form-control">
+      </div>
+      <div class="form-item">
+        <input type="password" placeholder="请输入新密码" name="password_repeat" class="form-control">
+      </div>
+      <div class="form-item">
+        <input type="submit" value="确定" class="register-btn">
+      </div>
+    </form>
+  </div>
+</main>
+<!-- container end -->
+{% endblock %}
+
+{% block script %}
+    <script src="../../static/js/re_pwd.js"></script>
+{% endblock %}
+
+
+

@@ -1,0 +1,272 @@
+{% extends 'base/base.html' %}
+{% load fox %}
+{% block main %}
+<main id="main">
+  <div class="w1200 clearfix">
+    <!-- main-contain start  -->
+    <div class="main-contain">
+      <!-- banner start -->
+        <div class="banner">
+            <ul class="pic">
+                <!--淡入淡出banner-->
+
+{#                <li><a href="{% url 'news_detail' b.new_id %}" target="_blank"><img src="{{ b.image_url }}" alt="test" ></a></li>#}
+
+
+            </ul>
+            <a href="javascript:void(0);" class="btn prev">
+                <i class="PyWhich py-arrow-left"></i></a>
+            <a href="javascript:void(0);" class="btn next">
+                <i class="PyWhich py-arrow-right"></i></a>
+            <ul class="tab">
+                <!-- 按钮数量必须和图片一致 -->
+
+
+                <li></li>
+
+
+                <li></li>
+
+
+                <li></li>
+
+
+                <li></li>
+
+
+                <li></li>
+
+
+                <li></li>
+
+
+            </ul>
+        </div>
+      <!-- banner end -->
+
+      <!-- content start -->
+      <div class="content">
+        <!-- recommend-news start -->
+          <ul class="recommend-news">
+              {% for j in hot_news %}
+              <li>
+                  <a href="{% url 'news_detail' j.new.id %}" target="_blank">
+                      <div class="recommend-thumbnail">
+                          <img src="{{ j.new.image_url }}">
+                      </div>
+                      <p class="info">{{ j.new.title }}</p>
+                  </a>
+              </li>
+              {% endfor %}
+          </ul>
+        <!-- recommend-news end -->
+
+        <!--  news-nav start-->
+          <nav class="news-nav">
+              <ul class="clearfix">
+                  <li class="active"><a href="javascript:void(0)" data-id="0">最新资讯</a></li>
+                {% for i in tags %}
+                  <li><a href="javascript:void(0)" data-id="{{ i.id }}">{{ i.name }}</a>
+                  </li>
+                {% endfor %}
+
+              </ul>
+          </nav>
+
+        <!--  news-nav end -->
+
+        <!-- news-contain start -->
+          <div class="news-contain">
+              <ul class="news-list">
+
+                  <li class="news-item">
+                      <a href="https://www.shiguangkey.com/course/2432" class="news-thumbnail"
+                         target="_blank">
+                          <img src="../../static/images/linux.jpg" alt="linux查找文件或目录命令"
+                               title="linux查找文件或目录命令">
+                      </a>
+                      <div class="news-content">
+                          <h4 class="news-title"><a
+                                  href="#" target="_blank">linux查找文件或目录命令</a>
+                          </h4>
+                          <p class="news-details">linux查找文件或目录命令，前提：知道文件或者目录的具体名字，例如：sphinx.conffind 查找find / -name
+                              dirname 查找目录find -name...</p>
+                          <div class="news-other">
+                              <span class="news-type">Linux教程</span>
+                              <span class="news-time">11/11 18:24</span>
+                              <span class="news-author">python</span>
+                          </div>
+                      </div>
+                  </li>
+
+                  <li class="news-item">
+                      <a href="https://www.shiguangkey.com/course/2432" class="news-thumbnail"
+                         target="_blank">
+                          <img src="../../static/images/linux.jpg" alt="linux下svn命令的使用"
+                               title="linux下svn命令的使用">
+                      </a>
+                      <div class="news-content">
+                          <h4 class="news-title"><a
+                                  href="https://www.shiguangkey.com/course/2432/887" target="_blank">linux下svn命令的使用</a>
+                          </h4>
+                          <p class="news-details">1、将文件checkout到本地目录svn checkout path（path是服务器上的目录） 例如：svn checkout
+                              svn://192.168.1.1/pro/domain 简写：svn co2、往版本库中添加新的文件 svn addfile 例如：svn add te...</p>
+                          <div class="news-other">
+                              <span class="news-type">Linux教程</span>
+                              <span class="news-time">11/11 18:24</span>
+                              <span class="news-author">python</span>
+                          </div>
+                      </div>
+                  </li>
+
+                  <li class="news-item">
+                      <a href="https://www.shiguangkey.com/course/2432" class="news-thumbnail"
+                         target="_blank">
+                          <img src="../../static/images/linux.jpg" alt="实现linux和windows文件传输"
+                               title="实现linux和windows文件传输">
+                      </a>
+                      <div class="news-content">
+                          <h4 class="news-title"><a
+                                  href="https://www.shiguangkey.com/course/2432/886" target="_blank">实现linux和windows文件传输</a>
+                          </h4>
+                          <p class="news-details">
+                              其实这个题目有点大，这里介绍的只是linux和windows文件传输中的一种，但是这种方法却非常实用，那就是：ZModem协议具体是linux命令是：rz...</p>
+                          <div class="news-other">
+                              <span class="news-type">Linux教程</span>
+                              <span class="news-time">11/11 18:24</span>
+                              <span class="news-author">python</span>
+                          </div>
+                      </div>
+                  </li>
+
+                  <li class="news-item">
+                      <a href="https://www.shiguangkey.com/course/2432" class="news-thumbnail"
+                         target="_blank">
+                          <img src="../../static/images/linux.jpg" alt=".htaccess配置详解"
+                               title=".htaccess配置详解">
+                      </a>
+                      <div class="news-content">
+                          <h4 class="news-title"><a
+                                  href="https://www.shiguangkey.com/course/2432" target="_blank">.htaccess配置详解</a>
+                          </h4>
+                          <p class="news-details">　　.htaccess文件设置基础教程 如果你设置好了比如常用的404页面 301重定向 页面还有500页面等会设置了
+                              无非对你的seo技术有很大帮助那么 .htaccess文件到底怎么设置呢　　- .htaccess 文件(或者&quot;分布式...</p>
+                          <div class="news-other">
+                              <span class="news-type">Linux教程</span>
+                              <span class="news-time">11/11 18:24</span>
+                              <span class="news-author">python</span>
+                          </div>
+                      </div>
+                  </li>
+
+                  <li class="news-item">
+                      <a href="https://www.shiguangkey.com/course/2432" class="news-thumbnail"
+                         target="_blank">
+                          <img src="../../static/images/linux.jpg" alt="使用nohup命令让linux程序后台运行"
+                               title="使用nohup命令让linux程序后台运行">
+                      </a>
+                      <div class="news-content">
+                          <h4 class="news-title"><a
+                                  href="https://www.shiguangkey.com/course/2432" target="_blank">使用nohup命令让linux程序后台运行</a>
+                          </h4>
+                          <p class="news-details">使用nohup让程序永远后台运行Unix/Linux下一般比如想让某个程序在后台运行，很多都是使用 &amp;
+                              在程序结尾来让程序自动运行。比如我们要运行mysql在后台：/usr/local/mysql/bin/mysqld_safe --user=mysql &amp;但是...</p>
+                          <div class="news-other">
+                              <span class="news-type">Linux教程</span>
+                              <span class="news-time">11/11 18:24</span>
+                              <span class="news-author">python</span>
+                          </div>
+                      </div>
+                  </li>
+
+              </ul>
+          </div>
+        <!-- news-contain end -->
+
+        <!-- btn-more start -->
+        <a href="javascript:void(0);" class="btn-more">加载更多</a>
+        <!-- btn-more end -->
+      </div>
+      <!-- content end -->
+    </div>
+    <!-- main-contain  end -->
+
+    <!-- side start -->
+      <aside class="side">
+          <div class="side-activities">
+              <h3 class="activities-title">在线课堂<a href="javascript:void(0)">更多</a></h3>
+              <div class="activities-img">
+                  <a href="javascript:void(0);" target="_blank">
+                      <img src="../../static/images/english.jpg" alt="title">
+                  </a>
+                  <p class="activities-tips">对话国外小姐姐</p>
+              </div>
+              <ul class="activities-list">
+                  <li>
+                      <a href="javascript:void(0);" target="_blank">
+                          <span class="active-status active-start">报名中</span>
+                          <span class="active-title"><a
+                                  href="https://www.shiguangkey.com/course/2432" target="_blank"> Django 项目班</a></span>
+                      </a>
+                  </li>
+                  <li>
+                      <a href="javascript:void(0);" target="_blank">
+                          <span class="active-status active-end">已结束</span>
+                          <span class="active-title"><a
+                                  href="https://www.shiguangkey.com/course/2321" target="_blank">Python入门基础班</a></span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          <div class="side-attention clearfix">
+              <h3 class="attention-title">关注我</h3>
+              <ul class="side-attention-address">
+                  <li>
+                      <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-GitHub"></i>Taka</a>
+                  </li>
+                  <li>
+                      <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-zhihu"
+                                                                       style="color:rgb(0, 108, 226);"></i>Taka</a>
+                  </li>
+                  <li>
+                      <a href="javascript:void(0);" target="_blank"><i class="PyWhich py-weibo"
+                                                                       style="color:rgb(245,92,110);"></i>Taka</a>
+                  </li>
+              </ul>
+              <div class="side-attention-qr">
+                  <p>扫码关注</p>
+              </div>
+          </div>
+
+          <div class="side-hot-recommend">
+              <h3 class="hot-recommend">热门推荐</h3>
+              <ul class="hot-news-list">
+                  {% for i in click_news %}
+
+                  <li>
+                      <a href="{% url 'news_detail' i.id %}" class="hot-news-contain clearfix" target="_blank">
+                          <div class="hot-news-thumbnail">
+                              <img src="{{ i.image_url }}" alt="">
+                          </div>
+                          <div class="hot-news-content">
+                              <p class="hot-news-title" >{{ i.title }}</p>
+                              <div class="hot-news-other clearfix">
+                                  <span class="news-type">{{ i.tag.name }}</span>
+                                  <!-- 自带的 -->
+                                  <time class="news-pub-time">{{ i.update_time | foxes }}</time>
+                                  <span class="news-author">{{ i.author.username }}</span>
+                              </div>
+                          </div>
+                      </a>
+                  </li>
+                  {% endfor %}
+
+              </ul>
+          </div>
+
+
+      </aside>
+    <!-- side end -->
+  </div>
+</main>
+{% endblock %}
